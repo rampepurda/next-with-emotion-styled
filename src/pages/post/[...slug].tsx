@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router'
-import Header from '../../components/Header/Header'
 import Link from "next/link"
 
 const Comment = () => {
@@ -10,7 +9,6 @@ const Comment = () => {
 
   return (
     <>
-      <Header />
       <h1>Slug test me: {slug.join('/')}</h1>
       <h3>{slug.includes('2020') ? <span>You win!</span> : null}</h3>
     </>

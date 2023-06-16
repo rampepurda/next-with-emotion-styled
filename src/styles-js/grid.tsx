@@ -1,11 +1,12 @@
 import styled from "@emotion/styled"
-import { RowProps } from '../styles-types/grid'
+import { RowProps, ColumnProps } from '../styles-types/grid'
 
+export const Column = styled('div')<ColumnProps>`
+  display: ${props => props.display};
+  width: ${props => props.width};
+  background-color: ${props => props.bgColor};
+`
 export const Row = styled('div')<RowProps>`
   width: ${props => props.width};
-  background-color: ${props => props.color};
-`
-export const Column = styled('div')<RowProps>`
-  width: ${props => props.width};
-  background-color: ${props => props.color};
+  background-color: ${props => props.bgColor};
 `

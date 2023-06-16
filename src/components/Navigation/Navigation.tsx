@@ -1,23 +1,27 @@
 import Link from 'next/link'
-import { linksHeader } from "../../configuration/common"
+import {  Nav } from "../../styles-js"
 
-type InitValue = {
+type Links = {
   asLink?: string
   pathName: string,
-  title: string,
+  title: string
 }
-const links: InitValue[] = linksHeader
+type InitValue = {
+  links: Links[],
+  isMain?: boolean,
+  ariaLabel?: string
+}
 
-export const Navigation = () => (
-  <nav>
+export const Navigation = ({links, isMain = true, ariaLabel}: InitValue) => {
+  return (
     <ul>
-      {links.map((init: InitValue, idx: number) => {
+      {links?.map((init: Links, idx: number) => {
         return (
           <li key={idx}>
             <Link
               href={init.pathName}
               as={init.asLink}
-              aria-label={init.pathName}
+              aria-label={init.title}
             >
               {init.title}
             </Link>
@@ -25,6 +29,6 @@ export const Navigation = () => (
         )
       })}
     </ul>
-  </nav>
-)
+  )
+}
 
